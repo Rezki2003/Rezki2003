@@ -1,10 +1,11 @@
-- 👋 Hi, I’m @Rezki2003
-- 👀 I’m interested in ...
-- 🌱 I’m currently learning ...
-- 💞️ I’m looking to collaborate on ...
-- 📫 How to reach me ...
+import { Seaport } from "@opensea/seaport-js";
+import { ethers } from "ethers";
 
-<!---
-Rezki2003/Rezki2003 is a ✨ special ✨ repository because its `README.md` (this file) appears on your GitHub profile.
-You can click the Preview link to take a look at your changes.
---->
+// Provider must be provided to the signer when supplying a custom signer
+const provider = new ethers.providers.JsonRpcProvider(
+  "https://<network>.alchemyapi.io/v2/YOUR-API-KEY"
+);
+
+const signer = new ethers.Wallet("YOUR_PK", provider);
+
+const seaport = new Seaport(signer);
